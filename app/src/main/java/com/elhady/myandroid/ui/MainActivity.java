@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import android.os.Bundle;
 
 import com.elhady.myandroid.R;
+import com.elhady.myandroid.data.AndroidImageAssets;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         headFragment = new HeadPartFragment();
         bodyFragment = new BodyPartFragment();
         legFragment = new LegPartFragment();
+
+        headFragment.setmImageIds(AndroidImageAssets.getHeads());
+        headFragment.setmListIndex(3);
+        bodyFragment.setmImageIds(AndroidImageAssets.getBodies());
+        bodyFragment.setmListIndex(5);
+        legFragment.setmImageIds(AndroidImageAssets.getLegs());
+        legFragment.setmListIndex(6);
 
 //        Use a FragmentManager and Transiction to add the fragment to the screen
         bodyFragmentManager = getSupportFragmentManager();
