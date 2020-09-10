@@ -1,6 +1,7 @@
 package com.elhady.myandroid.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
@@ -17,12 +18,19 @@ public class MainActivity extends AppCompatActivity {
     // Soon, you'll update this image display code to show any image you want
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // TODO (5) Create a new BodyPartFragment instance and display it using the FragmentManager
+        BodyPartFragment headFragment = new BodyPartFragment();
+
+//        Use a FragmentManager and Transiction to add the fragment to the screen
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+//        Fragment transiction
+        fragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
+
     }
 }
