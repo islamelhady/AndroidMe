@@ -9,6 +9,11 @@ import com.elhady.myandroid.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    FragmentManager bodyFragmentManager, headFragmentManager, legFragmentManager;
+    HeadPartFragment headFragment;
+    BodyPartFragment bodyFragment;
+    LegPartFragment legFragment;
+
     // TODO (1) Create a layout file that displays one body part image named fragment_body_part.xml
     // This layout should contain a single ImageView
 
@@ -24,16 +29,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // TODO (5) Create a new BodyPartFragment instance and display it using the FragmentManager
-        BodyPartFragment bodyFragment = new BodyPartFragment();
-        HeadPartFragment headFragment = new HeadPartFragment();
+        headFragment = new HeadPartFragment();
+        bodyFragment = new BodyPartFragment();
+        legFragment = new LegPartFragment();
 
 //        Use a FragmentManager and Transiction to add the fragment to the screen
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentManager fragmentManager1 = getSupportFragmentManager();
+        bodyFragmentManager = getSupportFragmentManager();
+        headFragmentManager = getSupportFragmentManager();
+        legFragmentManager = getSupportFragmentManager();
 
 //        Fragment transiction
-        fragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
-        fragmentManager1.beginTransaction().add(R.id.body_container,bodyFragment).commit();
-
+        bodyFragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
+        headFragmentManager.beginTransaction().add(R.id.body_container, bodyFragment).commit();
+        legFragmentManager.beginTransaction().add(R.id.leg_container, legFragment).commit();
     }
 }
