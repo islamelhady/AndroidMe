@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class BodyPartFragment extends Fragment {
+public class HeadPartFragment extends Fragment {
 
-    public BodyPartFragment() {
+    public HeadPartFragment() {
     }
 
     @Nullable
@@ -23,13 +23,13 @@ public class BodyPartFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 //        Inflate MyAndroid Fragment
-        View rootView = inflater.inflate(R.layout.fragment_body_part,container,false);
+        View rootView = inflater.inflate(R.layout.fragment_head_part,container,false);
 
 //        Get a refrance to the ImageView in the Fragment layout
-        ImageView imageView = rootView.findViewById(R.id.body_part_image_view);
+        ImageView imageView = rootView.findViewById(R.id.head_part_image_view);
 
 //        Set the image resource to display
-        imageView.setImageResource(AndroidImageAssets.getBodies().get(0));
+        imageView.setImageResource(AndroidImageAssets.getHeads().get(0));
         return rootView;
     }
 }

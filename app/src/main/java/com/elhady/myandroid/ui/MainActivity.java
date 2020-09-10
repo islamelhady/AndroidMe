@@ -24,13 +24,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // TODO (5) Create a new BodyPartFragment instance and display it using the FragmentManager
-        BodyPartFragment headFragment = new BodyPartFragment();
+        BodyPartFragment bodyFragment = new BodyPartFragment();
+        HeadPartFragment headFragment = new HeadPartFragment();
 
 //        Use a FragmentManager and Transiction to add the fragment to the screen
         FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager1 = getSupportFragmentManager();
 
 //        Fragment transiction
         fragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
+        fragmentManager1.beginTransaction().add(R.id.body_container,bodyFragment).commit();
 
     }
 }
