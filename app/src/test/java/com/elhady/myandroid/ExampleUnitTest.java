@@ -1,4 +1,4 @@
-package com.e.androidme;
+package com.elhady.myandroid;
 
 import org.junit.Test;
 
