@@ -10,10 +10,6 @@ import com.elhady.myandroid.data.AndroidImageAssets;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentManager bodyFragmentManager, headFragmentManager, legFragmentManager;
-    HeadPartFragment headFragment;
-    BodyPartFragment bodyFragment;
-    LegPartFragment legFragment;
 
     // TODO (1) Create a layout file that displays one body part image named fragment_body_part.xml
     // This layout should contain a single ImageView
@@ -31,21 +27,40 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             // TODO (5) Create a new BodyPartFragment instance and display it using the FragmentManager
-            headFragment = new HeadPartFragment();
-            bodyFragment = new BodyPartFragment();
-            legFragment = new LegPartFragment();
-
+            HeadPartFragment headFragment = new HeadPartFragment();
             headFragment.setmImageIds(AndroidImageAssets.getHeads());
-            headFragment.setmListIndex(3);
+
+            // Get the correct index to access in the array of head images from the intent
+            // Set the default value to 0
+            int headIndex = getIntent().getIntExtra("headIndex", 0);
+            headFragment.setmListIndex(headIndex);
+
+            BodyPartFragment bodyFragment = new BodyPartFragment();
             bodyFragment.setmImageIds(AndroidImageAssets.getBodies());
-            bodyFragment.setmListIndex(5);
+
+            int bodyIndex = getIntent().getIntExtra("bodyIndex", 0);
+            bodyFragment.setmListIndex(bodyIndex);
+
+
+            LegPartFragment legFragment = new LegPartFragment();
             legFragment.setmImageIds(AndroidImageAssets.getLegs());
-            legFragment.setmListIndex(6);
+
+            int legIndex = getIntent().getIntExtra("legIndex", 0);
+            legFragment.setmListIndex(legIndex);
+
+//            headFragment.setmImageIds(AndroidImageAssets.getHeads());
+//            //headFragment.setmListIndex(3);
+//            bodyFragment.setmImageIds(AndroidImageAssets.getBodies());
+//            //bodyFragment.setmListIndex(5);
+//            legFragment.setmImageIds(AndroidImageAssets.getLegs());
+//            //legFragment.setmListIndex(6);
+
+
 
 //        Use a FragmentManager and Transiction to add the fragment to the screen
-            bodyFragmentManager = getSupportFragmentManager();
-            headFragmentManager = getSupportFragmentManager();
-            legFragmentManager = getSupportFragmentManager();
+            FragmentManager bodyFragmentManager = getSupportFragmentManager();
+            FragmentManager headFragmentManager = getSupportFragmentManager();
+            FragmentManager legFragmentManager = getSupportFragmentManager();
 
 //        Fragment transiction
             bodyFragmentManager.beginTransaction().add(R.id.head_container, headFragment).commit();
